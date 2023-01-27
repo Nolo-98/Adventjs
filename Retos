@@ -1,0 +1,42 @@
+RETO 1
+
+function wrapping(gifts) {
+  return gifts.map((v) => {
+    let charCount = Array.from(v).length + 2
+    var envoltorio = ""
+    for (var i = 0; i < charCount; i ++){
+      envoltorio = envoltorio + "*"
+    }
+    return envoltorio + "\n" + "*" + v + "*\n" + envoltorio
+  })
+}
+
+RETO 2
+function countHours(year, holidays) {
+  return holidays.map(holiday => {
+  let date = new Date(`${year}/${holiday}`)
+    return [1, 2, 3, 4, 5].includes(date.getDay())
+}).reduce((count, extraHour) => count + extraHour) * 2
+}
+
+
+
+RETO 3
+function distributeGifts(packOfGifts, reindeers) {
+   let pesoMax = reindeers.join("").length * 2
+   let pesoCaja = packOfGifts.join("").length
+   return(pesoMax / pesoCaja) >> 0
+}
+
+
+RETO 6
+
+function createCube(size) {
+  let head = []
+  let tail = []
+  for(let i = 1; i <= size; i++) {
+    head.push(" ".repeat(size - i) + "/\\".repeat(i) + "_\\".repeat(size))
+    tail.push(" ".repeat(i - 1) + "\\/".repeat(size - (i - 1)) + "_/".repeat(size))
+  }
+  return [...head, ...tail].join("\n")
+}
